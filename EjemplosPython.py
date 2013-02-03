@@ -66,6 +66,218 @@ random.choice(lista) # escoge un elemento al azar
 
  random.randint(10,30)
 '''
+#298
+
+import sys,os
+
+class Servicio:
+
+  def __init__(self):
+    print "Inicio"
+
+  def getSistema(self):#nt, posix
+    return os.name
+
+  def getPlataforma(self):#win32,win64,linux2,darwin
+    return sys.platform
+
+  def windows(self):
+    print "estas en un sistema Windows"
+
+  def linux(self):
+    print "estas en un sistema Linux"
+
+  def macosx(self):
+    print "estas en un sistema Mac OS"
+
+
+
+def main():
+  servicio=Servicio()
+
+  if servicio.getPlataforma()=="win32" or servicio.getPlataforma()=="win64" and servicio.getSistema()=="nt":
+    servicio.windows()
+  elif servicio.getPlataforma()=="linux2" and servicio.getSistema()=="posix":
+    servicio.linux()
+  else:
+    macosx()
+
+
+if __name__=="__main__":
+  main()
+
+
+#297
+'''
+class Base(object):
+    def __init__(self):
+        print "Inicio de la clase Base"
+ 
+    def __del__(self):
+        print "Fin de la clase Base"
+ 
+ 
+class Miembro(object):
+    def __init__(self):
+        print "Inicio de la clase Miembro"
+ 
+    def __del__(self):
+        print "Fin de la clase Miembro"
+ 
+ 
+class Hija(Base):
+   
+    Miembro1 = Miembro()
+ 
+ 
+c = Hija()
+ 
+del(c)
+'''
+
+#296
+
+'''
+archivo=open('archivo.txt').read(200)
+escritura= open('prueba.txt','ab').write(archivo)
+
+'''
+
+#295
+
+'''
+archivo=open('archivo.txt').read()
+escritura= open('prueba.txt','a').write(archivo)
+
+'''
+
+#294
+'''
+archivo=open('archivo.txt').read(100)
+escritura= open('prueba.txt','wb').write(archivo)
+'''
+
+#293
+'''
+archivo=open('archivo.txt').readlines()
+escritura= open('prueba.txt','w').writelines(archivo)
+'''
+
+#292
+'''
+archivo=open('archivo.txt').read()
+escritura= open('prueba.txt','w').write(archivo)
+'''
+
+#291
+'''
+archivo= open('archivo.txt', 'rb')
+try:
+    while True:
+        trozo= archivo.read(10)
+        if not trozo:
+            break
+        print trozo+"@@"
+finally:
+    archivo.close( )
+'''
+
+#290
+'''
+archivo = open('archivo.txt')
+try:
+    for linea in archivo:
+     print linea
+finally:
+    archivo.close( )
+'''
+#289
+'''
+archivo = open('archivo.txt')
+try:
+    lista_x_lineas= archivo.read().split('h')
+    print lista_x_lineas[0]
+finally:
+    archivo.close( )
+
+'''
+
+#288
+'''
+archivo = open('archivo.txt')
+try:
+    lista_x_lineas= archivo.read().splitlines()
+    print lista_x_lineas[0]
+finally:
+    archivo.close( )
+'''
+
+#287
+'''
+archivo = open('archivo.txt')
+try:
+    lista_x_lineas= archivo.read().splitlines()
+    print lista_x_lineas[0]
+finally:
+    archivo.close( )
+'''
+
+#286
+'''
+archivo = open('archivo.txt')
+try:
+    contenido = archivo.read()
+    print contenido
+finally:
+    archivo.close( )
+'''
+
+#285
+'''
+books = ["The Pragmatic Programmer", "Code Complete", "Programming Perls", "The Mythical Man Month"]
+print "original: ",books
+books.sort()
+print "ordenado: ",books
+'''
+
+#284
+'''
+from Tkinter import*
+import sys
+from math import*
+ 
+def Factorial(n):
+  if n==0:
+    return 1
+  else:
+    return n*Factorial(n-1)
+
+def Obtener_Fact():
+  print "El factorial del número : ",numero.get()," es ",Factorial(numero.get())
+  res=Factorial(numero.get())
+  lblt=Label(Formulario1,text="Resultado: "+str(res))
+  lblt.grid(row=3,column=0)
+#------------------------------------------------------------------------------------------
+Formulario1=Tk()
+Formulario1.title('[Factorial]')
+Formulario1.resizable(width=TRUE,height=TRUE)
+#------------------------------------------------------------------------------------------
+Etiqueta=Label(Formulario1,text="Factorial del número")
+numero=IntVar()
+txtnumero=Entry(Formulario1,textvariable=numero,width=15)
+
+BotonCalcula=Button(Formulario1,text="Calcular",command=Obtener_Fact,width=10)
+txtnumero.grid()
+Etiqueta.grid()
+BotonCalcula.grid(row=0,column=1)
+BotonSalir=Button(Formulario1,text="Salir",command=exit,width=10)
+BotonSalir.grid(row=1,column=1)
+
+#------------------------------------------------------------------------------------------
+Formulario1.mainloop()
+#------------------------------------------------------------------------------------------
+'''
+
 
 #283
 '''
